@@ -1,0 +1,14 @@
+h1{
+    color: blue;
+}
+li{
+    color: green;
+}
+.highlight{
+    color: red;
+    font-weight: bold;
+}
+#special{
+    font-size: 24px;
+    color: purple;
+}

@@ -1,0 +1,68 @@
+/* Reset */
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Grid */
+.container{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 15px;
+    height: 100vh;
+    padding: 15px;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+.header{
+    grid-column: span 2;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Sidebar Navigation */
+.nav{
+    grid-row: span 2;
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Main Content */
+.main{
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Projects Section (Nested Grid) */
+.projects{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* Cards */
+.card{
+    background-color: lightblue;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+/* Footer */
+.footer{
+    grid-column: span 2;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}

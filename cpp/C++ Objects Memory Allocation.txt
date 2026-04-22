@@ -1,0 +1,234 @@
+C++ Objects Memory Allocation & using Arrays in Classes
+
+
+✅ How memory is allocated for objects?
+➤ For data members (variables):
+Memory is allocated when an object is created.
+
+Each object gets its own copy of the data members.
+
+➤ For member functions (methods):
+Memory for functions is not separately created for each object.
+
+All objects share the same copy of class functions (stored in code segment of memory).
+
+Only one copy of each member function is stored in memory.
+
+🧠 Example:
+cpp
+#include<iostream>
+using namespace std;
+
+class Student {
+    int roll;
+    float marks;
+public:
+    void setData(int r, float m) {
+        roll = r;
+        marks = m;
+    }
+    void display() {
+        cout << "Roll: " << roll << ", Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s1, s2;
+    s1.setData(1, 95.5);
+    s2.setData(2, 89.0);
+    s1.display();
+    s2.display();
+    return 0;
+}
+📍 Memory Notes:
+s1 and s2 each get separate memory for roll and marks.
+
+But the setData() and display() functions are shared — stored only once in memory.
+
+
+1. Array as a Data Member in a Class
+This means: You declare an array inside the class so that each object has its own array.
+
+🔸 Example:
+class Student {
+    int marks[5];  // array as a data member
+public:
+    void getMarks() {
+        cout << "Enter 5 subject marks: ";
+        for (int i = 0; i < 5; i++){
+            cin >> marks[i];
+        }
+    }
+
+    void displayMarks() {
+        for (int i = 0; i < 5; i++) {
+            cout << "Marks[" << i << "] = " << marks[i] << endl;
+        }
+    }
+};
+🔹 Main:
+cpp
+Copy
+Edit
+int main() {
+    Student s1, s2;
+    s1.getMarks();         // takes 5 marks
+    s2.getMarks();         // takes another 5 marks
+    s1.displayMarks();
+    s2.displayMarks();
+    return 0;
+}
+💡 Memory Allocation:
+Each object (s1, s2) has its own separate array of 5 integers.
+
+If 1 int = 4 bytes, then:
+
+marks[5] = 5 × 4 = 20 bytes
+
+So each object takes at least 20 bytes just for the array
+
+✅ 2. Array of Objects
+This means: You create an array that holds multiple objects of a class.
+
+🔸 Example:
+cpp
+Copy
+Edit
+class Student {
+    int roll;
+    float marks;
+public:
+    void getData() {
+        cout << "Enter roll and marks: ";
+        cin >> roll >> marks;
+    }
+
+    void displayData() {
+        cout << "Roll: " << roll << ", Marks: " << marks << endl;
+    }
+};
+🔹 Main:
+cpp
+Copy
+Edit
+int main() {
+    Student s[3];  // array of 3 objects
+
+    for (int i = 0; i < 3; i++) {
+        s[i].getData();    // input for each object
+    }
+
+    for (int i = 0; i < 3; i++) {
+        s[i].displayData();  // display each object’s data
+    }
+
+    return 0;
+}
+💡 Memory Allocation:
+Each s[i] is an object with:
+
+roll → 4 bytes
+
+marks → 4 bytes
+
+So 1 object = 8 bytes
+
+Array s[3] takes 3 × 8 = 24 bytes total (excluding function memory)
+
+
+#include <iostream>
+using namespace std;
+
+class Shop
+{
+    int itemId[100];
+    int itemPrice[100];
+    int counter;
+
+public:
+    void initCounter(void)
+    {
+        counter = 0;
+    }
+
+    void setPrice(void);
+    void displayPrice(void);
+};
+
+// Function to set price and item ID
+void Shop::setPrice(void)
+{
+    cout << "Enter Id of your item no " << counter + 1 << ": ";
+    cin >> itemId[counter];
+
+    cout << "Enter Price of your item: ";
+    cin >> itemPrice[counter];
+
+    counter++;
+}
+
+// Function to display all items and prices
+void Shop::displayPrice(void)
+{
+    for (int i = 0; i < counter; i++)
+    {
+        cout << "The Price of item with Id " << itemId[i] << " is " << itemPrice[i] << endl;
+    }
+}
+
+int main()
+{
+    Shop dukaan;             // Create object
+    dukaan.initCounter();    // Initialize counter
+
+    // Add 3 items
+    dukaan.setPrice();
+    dukaan.setPrice();
+    dukaan.setPrice();
+
+    // Display all items
+    dukaan.displayPrice();
+
+    return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+class car{
+    public:
+    string brand[3];
+    int modelno[3];
+    void setData(){
+        for (int i=0; i<3; i++){
+            cout<<"brand name: "<<i+1<<endl;
+            cin>>brand[i];
+            cout<<"modelno: "<<i+1<<endl;
+            cin>>modelno[i];
+        }
+    }
+    void displayData() {
+        cout << "\ncar Details:\n";
+        for (int i = 0; i < 3; i++) {
+            cout << "brand name: " << brand[i] 
+                 << "modelno: " << modelno[i] << endl;
+        }
+    }
+};
+int main() {
+    car s1, s2;
+
+    cout << "Enter details for first object (s1):\n";
+    s1.setData();
+
+    cout << "\nEnter details for second object (s2):\n";
+    s2.setData();
+
+    cout << "\n--- Details of s1 ---";
+    s1.displayData();
+
+    cout << "\n--- Details of s2 ---";
+    s2.displayData();
+
+    return 0;
+}

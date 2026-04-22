@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Query</title>
+  <style>
+    div {
+      background-color: rebeccapurple;
+      height: 500px;
+      width: 500px;
+    }
+
+/* 1️⃣ Mobile devices */
+@media (max-width: 480px) {
+  body {
+    background-color: salmon;
+  }
+}
+
+/* 2️⃣ Tablets and iPads */
+@media (min-width: 481px) and (max-width: 1200px) {
+  body {
+    background-color: powderblue;
+  }
+}
+
+/* 3️⃣ Laptops */
+@media (min-width: 1201px) and (max-width: 1600px) {
+  body {
+    background-color: limegreen;
+  }
+}
+
+/* 4️⃣ Desktops */
+@media (min-width: 1601px) {
+  body {
+    background-color: seagreen;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <h1>Media Query</h1>
+  <div></div>
+</body>
+
+</html>

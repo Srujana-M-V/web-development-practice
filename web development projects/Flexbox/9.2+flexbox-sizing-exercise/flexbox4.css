@@ -1,0 +1,27 @@
+.layout{
+    display: flex;
+    height: 100vh;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 10px;
+}
+.main{
+flex: 1;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card{
+    background-color: lightgreen;
+    width: 150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

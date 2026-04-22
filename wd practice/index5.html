@@ -1,0 +1,67 @@
+<!--2️⃣ How to measure a box in your browser
+
+You don’t need a ruler — you can do it directly using the browser’s Developer Tools:
+
+Open your HTML page in Chrome (or any browser).
+
+Right-click the box (e.g., your <div>), select Inspect.
+
+In the Elements tab, select your box.
+
+On the right side, you’ll see the Styles tab. There’s a small box model diagram showing:
+
+Margin (outside)
+
+Border
+
+Padding
+
+Content
+
+This shows exactly how much space each part takes in pixels.
+
+3️⃣ How to decide what to change
+
+You want the box bigger? → increase width/height
+
+You want space inside the box? → increase padding
+
+You want a border thicker? → increase border-width
+
+You want space between boxes? → increase margin
+
+Always remember: width and height only define the content size, everything else adds extra space around it.-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #first{
+        height: 150px;
+        width: 150px;
+        background-color: lightcoral;
+        border: 10px solid red;
+        padding: 10px;
+    }
+    #second{
+        height: 150px;
+        width: 150px;
+        background-color: lightgreen;
+        border: 5px solid green;
+        padding: 10px;
+        margin-left: 200px;
+
+    }
+</style>
+<body>
+    <div id="first">
+         
+    </div>
+    <div id="second"></div>
+</body>
+</html>

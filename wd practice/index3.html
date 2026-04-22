@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>two coloums layout</title>
+</head>
+<style>
+#left {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 15px;
+            display: inline-block;  /* 👈 makes it sit next to the other box */
+        }
+#right {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+            border: 5px dashed green; /* 👈 added style & color */
+            padding: 15px;
+            display: inline-block;   /* 👈 sits side by side */
+            margin-left: 50px;       /* 👈 space between left & right */
+        }
+</style>
+<body>
+    <div id="left"></div>
+    <div id="right"></div>
+</body>
+</html>

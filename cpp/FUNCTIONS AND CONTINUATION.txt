@@ -1,0 +1,457 @@
+FUNCTIONS AND CONTINUATION
+
+#include<iostream>
+using namespace std;
+
+int iseven(int n){
+    if(n % 2 == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+int main(){
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    if(iseven(n)) {
+        cout << n << " is Even.";
+    } else {
+        cout << n << " is Odd.";
+    }
+    return 0;
+}
+
+
+
+
+//simple program.....
+#include<iostream>
+using namespace std;
+int sum(int a ,int b){
+    int c = a + b;
+    return c;
+}
+int main(){
+    cout << "The sum of " << sum(2, 3);
+    return 0;
+}
+
+
+
+#include<iostream>
+using namespace std;
+int fact(int n){
+    int f = 1;
+    for(int i = 1; i <= n; i++){
+        f = f * i;
+    }
+    return f;
+}
+int main(){
+    int n;
+    cout << "Enter 1 number: ";
+    cin >> n;
+    cout << "Factorial of " << n << " is " << fact(n);
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+int max(int a,int b);
+int main(){
+    int a=6;
+    int b=7;
+    cout<<"the largest number is"<<max(6,7);
+    return 0;
+}
+int max(int a,int b){
+    if(a>b){
+        return a;
+    }
+    else{
+        return b;
+    }
+}
+
+
+
+#include<iostream>
+using namespace std;
+int main(){
+    int num;
+    bool isprime=true;
+    cout<<"enter the number";
+    cin>>num;
+    if(num<=1){
+        bool isprime=false;
+    }
+    for(int i=2; i<num; i++){
+        if(num%i==0){
+            bool isprime=false;
+            break;
+        }
+        else{
+           bool isprime=true; 
+        }
+    }
+    if(isprime){
+        cout<<num<<"is a prime";
+    }
+    else{
+        cout<<num<<"num is not prime";
+    }
+    return 0;
+}
+
+
+
+CALL BY VALUE AND REFERENCE
+
+#include<iostream>
+using namespace std;
+
+void swap(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int a, b;
+    cout << "Enter a and b: ";
+    cin >> a >> b;
+
+    swap(a, b);
+
+    cout << "After swapping:" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+
+    return 0;
+}
+
+
+#include<iostream>  
+using namespace std;
+
+// 📦 This function swaps three variables in a specific pattern:
+// a = b, b = c, c = a (using temp)
+void swap(int &a, int &b, int &c) {
+    int temp = a;  // 🔁 Store original 'a' temporarily
+    a = b;         // 🔁 Now 'a' becomes value of 'b'
+    b = c;         // 🔁 'b' becomes value of 'c'
+    c = temp;      // 🔁 'c' gets the original 'a' from temp
+}
+
+int main() {
+    int a, b, c;
+    cout << "enter a and b and c: ";
+    cin >> a >> b >> c;     // 🧠 User inputs the values
+
+    swap(a, b, c);          // ✨ Calling the function - changes reflect here because of reference
+
+    cout << a << " " << b << " " << c;  // ✅ Final output after swapping
+    return 0;
+}
+
+INLINE FUNCTIONS
+
+An inline function is a function where the compiler replaces the function call with the actual code of the function. It helps to reduce the overhead of a function call, especially for small, frequently used functions.
+
+📌 Why use Inline?
+It’s faster because no jumping to function code and back (no function call overhead).
+
+Mostly used for small functions.
+
+
+#include<iostream>
+using namespace std;
+inline int max(int x,int y,int z){
+    if(x>y&&x>z){
+        cout<<"x is greater";
+        return x;
+    }
+    else if(y>z){
+        cout<<"y is greater";
+        return y;
+    }
+    else{
+        cout<<"z is greater";
+        return z;
+    }
+}
+int main(){
+    int a,b,c;
+    cout<<" enter value of a,b,c: ";
+    cin>>a>>b>>c;
+    cout<<"\nmax num is"<<max(a,b,c);
+    return 0;
+}
+
+DEFAULT ARGUMENTS
+
+
+#include<iostream>
+using namespace std;
+
+void greet(string name = "User") {
+    cout << "Hello, " << name << "!" << endl;
+}
+
+int main() {
+    greet();            // Uses default value: "User"
+    greet("Srujana");   // Overrides default with "Srujana"
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+
+void greet(string name = "srujana") {
+    cout << "hello " << name;
+}
+
+int main() {
+    greet("user");   // This will print: hello user
+    greet();         // This will print: hello srujana
+    return 0;
+}
+
+RECURSION AND FUNCTIONS
+
+#include<iostream>              // Preprocessor directive to include input-output stream
+using namespace std;            // To avoid writing std:: before cin and cout
+
+// --- Function Declaration + Definition ---
+int fact(int n) {               // Function to calculate factorial of n
+    if(n == 1 || n == 0) {      // Base condition: if n is 1 or 0, return 1
+        return 1;               // This is the stopping condition for recursion
+    }
+    else {
+        return n * fact(n - 1); // Recursive call: fact(n) = n * fact(n-1)
+    }
+}
+
+fact(4) → 4 * fact(3)
+       → 4 * (3 * fact(2))
+       → 4 * (3 * (2 * fact(1)))
+       → 4 * (3 * (2 * 1)) → 24
+
+
+#include<iostream>
+using namespace std;
+
+void num(int n){
+    if(n == 0){
+        return;
+    }
+    cout << n << " ";   // print before the recursive call for reverse
+    num(n - 1);         // then move to the next smaller number
+}
+
+int main() {
+    int n;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    
+    cout << "Numbers from " << n << " to 1 are: ";
+    num(n);
+    
+    return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+
+void num(int n){
+    if(n == 0){
+        return;
+    }
+    num(n - 1);       // count down to 1
+    cout << n << " "; // print after recursion for ascending order
+}
+
+int main() {
+    int n;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    
+    cout << "Numbers from 1 to " << n << " are: ";
+    num(n);
+    
+    return 0;
+}
+
+
+🅰️ Code that prints 54321 (Descending order)
+cpp
+Copy code
+void num(int n) {
+    if(n == 0) return;
+    cout << n << " ";
+    num(n - 1);
+}
+📈 Execution flow:
+num(3)
+prints: 3, then → calls num(2)
+
+num(2)
+prints: 2, then → calls num(1)
+
+num(1)
+prints: 1, then → calls num(0)
+
+num(0)
+stops (base case)
+
+📤 Output:
+Copy code
+3 2 1
+
+🅱️ Code that prints 12345 (Ascending order)
+cpp
+Copy code
+void num(int n) {
+    if(n == 0) return;
+    num(n - 1);
+    cout << n << " ";
+}
+📈 Execution flow (with n = 3):
+num(3)
+calls num(2) (does NOT print yet)
+
+num(2)
+calls num(1)
+
+num(1)
+calls num(0) → hits base case, returns
+
+Now we start printing on the way back:
+
+num(1) prints: 1
+
+num(2) prints: 2
+
+num(3) prints: 3
+
+📤 Output:
+Copy code
+1 2 3
+
+FUNCTION OVERLOADING
+
+#include<iostream>
+using namespace std;
+int mul(int a,int b){
+    return a*b;
+}
+int mul(int a,int b,int c){
+    return a*b*c;
+}
+float mul(float d,int b){
+    return d*b;
+}
+int main(){
+    int a,b,c;
+    float d;
+    cout<<"enter a,b,c and d: ";
+    cin>>a>>b>>c>>d;
+    cout<<"mul of 2 ints: "<<mul(a,b)<<endl;
+    cout<<"mul of 3 ints: "<<mul(a,b,c)<<endl;
+    cout<<"mul of 1 float and 1 int: "<<mul(d,b)<<endl;
+    return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+
+int area(int length) {
+    return length * length;
+}
+
+int area(int length, int breadth) {
+    return length * breadth;
+}
+
+float areaCircle(float radius) {  // renamed to avoid ambiguity
+    return 3.14 * radius * radius;
+}
+
+int main() {
+    int length, breadth;
+    float radius;
+
+    cout << "Enter length and breadth: ";
+    cin >> length >> breadth;
+
+    cout << "Enter radius: ";
+    cin >> radius;
+
+    cout << "Area of square: " << area(length) << endl;
+    cout << "Area of rectangle: " << area(length, breadth) << endl;
+    cout << "Area of circle: " << areaCircle(radius) << endl;
+
+    return 0;
+}
+
+
+#include<iostream>
+using namespace std;
+
+// Function to find the maximum of two integers
+int max(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+// Function to find the maximum of three integers
+int max(int a, int b, int c) {
+    if (a > b && a > c) {
+        return a;
+    } else if (b > c) {
+        return b;
+    } else {
+        return c;
+    }
+}
+
+// Function to find the maximum of two floats
+float max(float x, float y) {
+    if (x > y) {
+        return x;
+    } else {
+        return y;
+    }
+}
+
+int main() {
+    int a, b, c;
+    float x, y;
+    
+    // Taking input for the numbers
+    cout << "Enter two integers (a and b): ";
+    cin >> a >> b;
+    
+    cout << "Enter three integers (a, b, and c): ";
+    cin >> a >> b >> c;
+    
+    cout << "Enter two floats (x and y): ";
+    cin >> x >> y;
+    
+    // Output the maximum values
+    cout << "Maximum of two integers: " << max(a, b) << endl;
+    cout << "Maximum of three integers: " << max(a, b, c) << endl;
+    cout << "Maximum of two floats: " << max(x, y) << endl;
+
+    return 0;
+}
+
+
+
