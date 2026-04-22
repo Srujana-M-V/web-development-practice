@@ -1,1 +1,0 @@
-Hello Srujana! Learning File I/O is easy.
