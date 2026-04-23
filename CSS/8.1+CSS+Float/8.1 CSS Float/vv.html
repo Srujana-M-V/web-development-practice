@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Query Example</title>
+  <style>
+    /* Default Style */
+    body {
+      background-color: aquamarine;
+    }
+
+    /* 📱 Mobile: 0 to 480px */
+    @media (max-width: 480px) {
+      body {
+        background-color: salmon;
+      }
+    }
+
+    /* 📲 Tablets: 481px to 1200px */
+    @media (min-width: 481px) and (max-width: 1200px) {
+      body {
+        background-color: powderblue;
+      }
+    }
+
+    /* 💻 Laptops: 1201px to 1600px */
+    @media (min-width: 1201px) and (max-width: 1600px) {
+      body {
+        background-color: limegreen;
+      }
+    }
+
+    /* 🖥️ Desktops: 1601px and more */
+    @media (min-width: 1601px) {
+      body {
+        background-color: seagreen;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Resize the browser window!</h1>
+  <p>See how the background color changes at different screen sizes.</p>
+</body>
+</html>

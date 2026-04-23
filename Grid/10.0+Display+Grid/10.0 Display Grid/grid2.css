@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+ grid-template-columns: 200px 1fr;
+    gap: 20px;
+}
+
+.header{
+    grid-column: span 2;
+    background-color: beige;
+}
+
+.footer{
+    grid-column: span 2;
+    background-color: rgb(165, 118, 57);
+}
+.sidebar{
+    background-color: beige;
+}
+p{
+    background-color: cadetblue;
+}

@@ -1,0 +1,18 @@
+h1,h2{
+    color: blue;
+}
+p.important{
+    color: red;
+}
+div p{
+    color: green;
+}
+div>p{
+    color: orange;
+}
+h1+p{
+    color: purple;
+}
+h1 ~p{
+    font-size: 20px;
+}

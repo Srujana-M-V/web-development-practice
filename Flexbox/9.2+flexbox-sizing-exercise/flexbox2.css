@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    background-color: lightgrey;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    
+}

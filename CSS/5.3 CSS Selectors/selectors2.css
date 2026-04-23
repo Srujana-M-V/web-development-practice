@@ -1,0 +1,21 @@
+h1,h2{
+    color: darkgreen;
+}
+p.note{
+    color: red;
+}
+.box p{
+    color: blue;
+}
+.box>p{
+    color: yellow;
+}
+h1+p{
+    color: purple;
+}
+h1~p{
+    font-size: 18px;
+}
+.box > p.note{
+    border: 2px solid black;
+}
