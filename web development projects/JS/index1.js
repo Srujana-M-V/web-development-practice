@@ -1,15 +1,12 @@
-function test() {
-    var a = "3";
-    var b = "8";
-    
-/***********Do not change the code above 👆*******/
-//Write your code on lines 7 - 9:
-    var temp = a;
-    a = b;
-    b = temp;
-/***********Do not change the code below 👇*******/
-
-    console.log("a is " + a);
-    console.log("b is " + b);
-}
-test();
+document.querySelector("title").innerHTML="srujana";
+let heading = document.querySelector("h1");
+heading.innerHTML = "Srujana";
+heading.style.color = "blue";
+document.querySelectorAll("li")[2].innerHTML="Learning DOM"
+document.querySelector("li a").style.color="red";
+document.querySelector(".btn")
+document.querySelector(".btn").addEventListener("click", function() {
+});
+document.querySelector(".btn").addEventListener("click", function() {
+    document.querySelector("h1").innerHTML = "Button Clicked";
+});
