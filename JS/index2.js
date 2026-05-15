@@ -25,3 +25,16 @@ function bellBoy(name,age,clas,place){
 }
 var bellBoy1=new bellBoy("srujan",20,6,"sagar");
 var bellBoy2=new bellBoy("ashwin",6,1,"bangalore");
+
+function worker(name, age, noOfHours, works) {
+
+    this.name = name;
+    this.age = age;
+    this.noOfHours = noOfHours;
+    this.works = works;
+
+    this.workerboy = function () {
+        alert("worker boy 1");
+    };
+}
+var worker1 = new worker("Ravi", 25, 8, "Cleaning");
